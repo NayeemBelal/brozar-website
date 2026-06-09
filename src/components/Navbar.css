@@ -1,0 +1,223 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 72px;
+  background: rgba(4, 20, 44, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s;
+  pointer-events: none;
+}
+
+.navbar.navbar-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.navbar-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  letter-spacing: 0.12em;
+}
+
+.logo-brozar {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.logo-productions {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: var(--text-secondary);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.navbar-links li a {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+
+.navbar-links li a:hover {
+  color: var(--teal);
+}
+
+.navbar-cta {
+  padding: 8px 20px;
+  border: 1px solid var(--teal);
+  border-radius: 2px;
+  color: var(--teal) !important;
+  font-size: 12px !important;
+  letter-spacing: 0.12em !important;
+  transition: background 0.2s, color 0.2s !important;
+}
+
+.navbar-cta:hover {
+  background: var(--teal) !important;
+  color: var(--black) !important;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--teal);
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Video Types dropdown ────────────────────────────── */
+.navbar-dropdown-wrap {
+  position: relative;
+}
+
+.navbar-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.navbar-dropdown-trigger:hover,
+.navbar-dropdown-trigger.active {
+  color: var(--teal);
+}
+
+.navbar-dropdown-arrow {
+  font-size: 10px;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.navbar-dropdown-trigger.active .navbar-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.navbar-dropdown {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 180px;
+  background: rgba(4, 20, 44, 0.97);
+  border: 1px solid var(--border-bright);
+  list-style: none;
+  padding: 8px 0;
+  z-index: 200;
+}
+
+.navbar-dropdown li button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+
+.navbar-dropdown li button:hover {
+  color: var(--teal);
+  background: rgba(0, 212, 200, 0.06);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 24px;
+  }
+
+  .hamburger {
+    display: flex;
+    padding: 10px;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(4, 20, 44, 0.97);
+    padding: 32px 0;
+    gap: 24px;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s, opacity 0.3s;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .navbar-links li a {
+    padding: 10px 0;
+    display: inline-block;
+  }
+
+  .navbar-dropdown {
+    position: static;
+    transform: none;
+    border: none;
+    border-top: 1px solid var(--border);
+    padding: 4px 0 4px 16px;
+    background: transparent;
+    min-width: unset;
+  }
+
+  .navbar-dropdown-trigger {
+    padding: 10px 0;
+  }
+
+  .navbar-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+}

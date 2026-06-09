@@ -1,0 +1,245 @@
+.contact {
+  padding: 120px 48px;
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  background: url('/man-videographer.jpg') center 35% / cover no-repeat;
+}
+
+/* Dark overlay — heavier on left for readability, fades right to reveal image */
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(2, 8, 20, 0.96) 30%, rgba(2, 8, 20, 0.75) 60%, rgba(2, 8, 20, 0.45) 100%),
+    linear-gradient(to bottom, rgba(2, 8, 20, 0.4) 0%, transparent 20%, transparent 80%, rgba(2, 8, 20, 0.6) 100%);
+  z-index: 0;
+}
+
+/* ── Inner grid ──────────────────────────────────────── */
+.contact-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* ── Left — heading & info ───────────────────────────── */
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.contact-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.contact-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--teal);
+  opacity: 0.6;
+}
+
+.contact-heading {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(42px, 6vw, 80px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  gap: 4px;
+}
+
+.contact-heading-solid {
+  color: #eef8f8;
+}
+
+/* Matching the "PRODUCTIONS" ghost-stroke style from the hero */
+.contact-heading-stroke {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(0, 212, 200, 0.45);
+}
+
+.contact-body {
+  font-size: 14px;
+  color: rgba(122, 184, 180, 0.8);
+  line-height: 1.75;
+  max-width: 34ch;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(0, 212, 200, 0.12);
+}
+
+.contact-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(238, 248, 248, 0.65);
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+
+.contact-link:hover {
+  color: var(--teal);
+}
+
+/* ── Form card — glassmorphism ───────────────────────── */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: rgba(2, 8, 20, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 200, 0.12);
+  padding: 48px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0, 212, 200, 0.6);
+}
+
+/* Underline-only input style */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 212, 200, 0.2);
+  border-radius: 0;
+  color: #eef8f8;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 10px 0;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(238, 248, 248, 0.2);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--teal);
+}
+
+.form-group select {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300d4c8' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+}
+
+.form-group select option {
+  background: #04142c;
+  color: #eef8f8;
+}
+
+/* ── Submit button ───────────────────────────────────── */
+.contact-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  align-self: flex-start;
+  margin-top: 8px;
+  background: var(--teal);
+  color: #020810;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, gap 0.2s;
+}
+
+.contact-submit:hover {
+  background: #00f0e0;
+  gap: 20px;
+}
+
+.contact-submit-arrow {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .contact-heading {
+    font-size: clamp(42px, 8vw, 72px);
+  }
+}
+
+@media (max-width: 640px) {
+  .contact {
+    padding: 80px 24px;
+    background-image: url('/photo-vertical-reponsive-2.jpg');
+    background-position: left center;
+  }
+
+  .contact-form {
+    padding: 32px 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-submit {
+    min-height: 44px;
+    width: 100%;
+    justify-content: center;
+    align-self: stretch;
+  }
+}
