@@ -27,17 +27,6 @@ function extractYouTubeId(input: string): string | null {
   return null
 }
 
-function dbToProject(row: DbProject): Project {
-  return {
-    id: row.id,
-    title: row.title,
-    category: row.category,
-    year: row.year,
-    youtubeId: row.youtube_id,
-    vertical: row.vertical,
-    description: row.description,
-  }
-}
 
 type FormState = {
   youtubeUrl: string

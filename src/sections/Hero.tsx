@@ -10,7 +10,7 @@ const industryEntries = Object.values(industries)
 const fadeIn = (delay = 0) => ({
   initial: { opacity: 0 },
   animate: { opacity: 1 },
-  transition: { duration: 0.6, ease: 'easeOut', delay },
+  transition: { duration: 0.6, ease: 'easeOut' as const, delay },
 })
 
 const DESKTOP_VIDEO = 'https://enpscpbvbmhuhuruajbu.supabase.co/storage/v1/object/public/brozarVides/hero-video-desktop.mp4'
